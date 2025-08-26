@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-
+from .models import UploadedDocument, Citation
 class RegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     class Meta:
@@ -15,7 +15,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         )
         return user
     
-class LoginSerializer(serializers.ModelSerializer):
+class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
     def validate(self,data):
@@ -23,3 +23,13 @@ class LoginSerializer(serializers.ModelSerializer):
         if not user:
             raise serializers.ValidationError("Invalid username or password")
         return user
+    
+class UploadedDocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UploadedDocument
+        fields = '__all__'
+        
+class CitationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Citation
+        fields = '__all__'
