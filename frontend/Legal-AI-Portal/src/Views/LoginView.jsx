@@ -7,6 +7,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { HashLoader } from 'react-spinners';
+import {Link} from 'react-router-dom';
 
 
 function LoginView() {
@@ -18,6 +19,7 @@ function LoginView() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await axios.post('http://localhost:8000/login/', {
                 username,
@@ -36,7 +38,7 @@ function LoginView() {
                     },
                 }
             );
-            setIsLoading(true);
+            
             setUsername('');
             setPassword('');
             setTimeout(()=>{
@@ -95,6 +97,10 @@ function LoginView() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div className='flex flex-row items-center justify-center gap-2 text-gray-600 font-medium'>
+                        <p className="font-bold">New User? </p>
+                        <Link to="/register" className="text-blue-400">Register</Link>
+                    </div>
                     <button
                         type="submit"
                         className="mt-4 bg-blue-600 hover:bg-blue-700 text-blue-300 font-semibold py-2 rounded-lg shadow transition-colors duration-200"

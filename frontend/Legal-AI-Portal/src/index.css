@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.crd{
+  background-color: transparent;
+  backdrop-filter: blur(25px);
+}
+
+.pg{
+    background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #91a0e6, #87a6ea, #7eaced, #77aff1, #70b2f4, #68b6f8, #5fb9fb);
+}
