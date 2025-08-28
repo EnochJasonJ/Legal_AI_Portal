@@ -7,6 +7,7 @@ function HomePage() {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const getStartedLink = () => token ? navigate('/upload') : navigate('/login');
+    const learnMoreLink = () => navigate('/learn-more');
 
     return (
         <div className="min-h-screen pg flex flex-col items-center justify-center px-4 py-10">
@@ -26,7 +27,7 @@ function HomePage() {
                 <p className="text-lg md:text-xl text-gray-700 mb-6">Empowering your legal research with AI-driven citation analysis and document intelligence.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <button onClick={getStartedLink} className="px-8 py-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg hover:border hover:border-white shadow transition-all duration-500 ease-in-out">Get Started</button>
-                    <button className="px-8 py-3 bg-white border border-blue-600 text-blue-700 font-semibold rounded-lg shadow hover:bg-blue-700 hover:border-white hover:text-white transition-all duration-500 ease-in-out">Learn More</button>
+                    <button onClick={learnMoreLink} className="px-8 py-3 bg-white border border-blue-600 text-blue-700 font-semibold rounded-lg shadow hover:bg-blue-700 hover:border-white hover:text-white transition-all duration-500 ease-in-out">Learn More</button>
                 </div>
             </section>
             <section className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">

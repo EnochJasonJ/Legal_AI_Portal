@@ -5,6 +5,7 @@ import HomePage from './Views/HomePage'
 import CitationPage from './Views/CitationPage'
 import VerifiedCitations from './Views/VerifiedCitations'
 import RegisterView from './Views/RegisterView'
+import LearnMore from './Views/LearnMore'
 import NavBar from './Components/NavBar'
 import SpeechAssist from './Components/SpeechAssist'
 import { Toaster } from 'react-hot-toast'
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginView />} />
         <Route path="/register" element={<RegisterView />} />
+        <Route path="/learn-more" element={<LearnMore />} />
         <Route path="/upload" element={<CitationPage />} />
         <Route path="/verified-citations" element={<VerifiedCitations />} />
         <Route path="/" element={<HomePage />} />
